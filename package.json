@@ -1,0 +1,36 @@
+{
+  "name": "database-migration-system",
+  "version": "1.0.0",
+  "description": "Database Migration System using TypeORM, no server required!",
+  "main": "dist/index.js",
+  "bin": {
+    "typeorm-migrate": "./dist/index.js"
+  },
+  "scripts": {
+    "migration": "typeorm-ts-node-commonjs",
+    "migration:create": "typeorm-ts-node-commonjs migration:create ./src/database/migrations/${MIG_NAME:-NewMigration}",
+    "migration:show": "typeorm-ts-node-commonjs migration:show -d ./src/database/connection.ts",
+    "migration:up": "typeorm-ts-node-commonjs migration:run -d ./src/database/connection.ts",
+    "migration:down": "typeorm-ts-node-commonjs migration:revert -d ./src/database/connection.ts"
+  },
+  "keywords": [
+    "typeorm",
+    "migration",
+    "database",
+    "typescript",
+    "sql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.22",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
